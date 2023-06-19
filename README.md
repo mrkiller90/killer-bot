@@ -1,5 +1,5 @@
 # Telegram :
-https://t.me/xpanel-telegrambot
+https://t.me/xpanel_telegrambot
 
 # نصب 
 دستورات زیر را برای نصب در سرور خود وارد کنید :
