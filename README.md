@@ -52,5 +52,5 @@ screen python3 bott.py
 rm -rf killer-bot 
 rm -rf bott.py
 ```
-# عکس
+# قابلیت ها :
 ![1](./pic/bot.png)
