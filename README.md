@@ -43,4 +43,9 @@ cp bott.py /root
 
 screen python3 bott.py
 ```
-
+# حذف 
+برای حذف کافی است دستورات زیر را وارد کنید :
+```
+rm -rf killer-bot 
+rm -rf bott.py
+```
