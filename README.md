@@ -1,3 +1,6 @@
+# Telegram :
+https://t.me/xpanel-telegrambot
+
 # نصب 
 دستورات زیر را برای نصب در سرور خود وارد کنید :
 ```
@@ -49,3 +52,5 @@ screen python3 bott.py
 rm -rf killer-bot 
 rm -rf bott.py
 ```
+# عکس
+![1](./pic/bot.png)
