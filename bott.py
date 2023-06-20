@@ -5,10 +5,16 @@
 import telebot
 import os
 import requests
-bot = telebot.TeleBot("TOKEN") #توکن ربات جایگزاری بشه
-admin_id = 11111 #آیدی عددی ادمین
-api = "link" #لینک api گرفته شده از پنل همراه با توکن
-matn = "🍷سلام مستر کیلر عزیز☠️" #متن خوش آمد گویی
+print("Wellcome To Mr-Killer Bot Script !\n id : @Mr_Killer_1\n")
+token = input("Enter Bot Token : ")
+adminid = input("Enter Admin ID : ")
+admin_id = int(adminid)
+host = input("Enter Api Host Link  : ")
+hostt = input("Enter Host Link(XXX.com) : ")
+port = input("Enter Server port : ")
+udp = input("Enter udp port : ")
+matn = input("Enter Wellcome Text : ")
+bot = telebot.TeleBot(token)  
 key1 = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True,row_width=2)
 key1.add("✍️افزودن کاربر✍️","✍️حذف کاربر✍️","🔧ادیت کاربر🔧","⚙مشخصات کاربر⚙","💾تنظیم بنر💾","🪦بکاپ🪦")
 keyback = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True,row_width=2)
@@ -117,7 +123,7 @@ def trf(message):
     else:
         global trfk
         trfk = message.text
-        url = api+"&method=adduser" 
+        url = host+"&method=adduser"
         etk = {
             "username": namek,
             "password": ramzk,
@@ -127,14 +133,14 @@ def trf(message):
             "expdate": enqk,
         }
         requests.post(url,etk)
-        bot.send_message(message.chat.id,"☠️your user has been created✅"+"\n💥username :" " " + namek+"\n💥password :" " " + ramzk +"\n👹multiuser :" " " + tedadk+"\n🔥traffic :" " " + trfk)
+        bot.send_message(message.chat.id,"☠️your user has been created✅"+"\n💥username :" " " + namek+"\n💥password :" " " + ramzk +"\n👹multiuser :" " " + tedadk+"\n🔥traffic :" " " + trfk+" "+"GB"+"\n🔗Link :"+" "+"ssh://"+namek+":"+ramzk+"@"+hostt+":"+port+"#"+namek)
 def etrf(message):
     if message.text == "↩️برگشت↩️":
         bot.send_message(message.chat.id,"↩️برگشتیم عشقم🍷",reply_markup=key1)
     else:
         global etrfk
         miladi = sh_date.togregorian()
-        url = api+"&method=edituser" 
+        url = host+"&method=edituser" 
         eetk = {
             "username": enamek,
             "password": eramzk,
@@ -144,13 +150,13 @@ def etrf(message):
             "expdate": eenqk,
         }
         requests.post(url,eetk)
-        bot.send_message(message.chat.id,"☠️your user has been edited✅"+"\n💥username :" " " + enamek+"\n💥password :" " " + eramzk +"\n👹multiuser :" " " + etedadk+"\n🔥traffic :" " " + etrfk)
+        bot.send_message(message.chat.id,"☠️your user has been edited✅"+"\n💥username :" " " + enamek+"\n💥password :" " " + eramzk +"\n👹multiuser :" " " + etedadk+"\n🔥traffic :" " " + etrfk+"\n🔗Link :"+" "+"ssh://"+enamek+":"+eramzk+"@"+hostt+":"+port+"#"+enamek)
 
 
 def namede(message):
     global delnamek
     delnamek = message.text
-    url = api+"&method=deleteuser" 
+    url = host+"&method=deleteuser" 
     result = {"username": delnamek}
     requests.post(url, result)
     bot.send_message(message.chat.id,"☠️کاربر با موفقیت حذف شد✅")
@@ -160,7 +166,7 @@ def mosh(message):
         bot.send_message(message.chat.id,"↩️برگشتیم عشقم🍷",reply_markup=key1)
     else:
         mosh_username = message.text
-        url = api+"&method=user&username="+mosh_username
+        url = host+"&method=user&username="+mosh_username
         response = requests.get(url)
         data = response.json()['data'][0]
         messagee = f"💻Username: {data['username']}\n🔗Password: {data['password']}\n🔋Traffic: {data['traffic']}\n🍷Multiuser: {data['multiuser']}\n🎈Start date: {data['startdate']}\n🎈Finish date: {data['finishdate']}"
